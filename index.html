@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Simples</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Meu Blog</h1>
+            <p>Integração com IA</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#">Início</a>
+        </div>
+    </nav>
+
+    <main class="container container-flex">
+        <section class="conteudo-principal">
+            <article class="post">
+                <h2>Resposta da IA</h2>
+                <div class="meta-dados">Postado em tempo real por IA</div>
+                <!-- ID 'texto-post' adicionado aqui para exibir o retorno do n8n -->
+                <p id="texto-post">Envie uma mensagem pelo formulário lateral para ver a resposta da IA aqui.</p>
+            </article>
+        </section>
+
+        <aside class="barra-lateral">
+            <h3>Fale com a IA</h3>
+            
+            <!-- Formulário criado com os IDs corretos que o JS espera -->
+            <form id="meu-form" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required placeholder="seu@email.com">
+                
+                <label for="message">Mensagem:</label>
+                <textarea id="message" required placeholder="Digite sua pergunta..." rows="4"></textarea>
+                
+                <button type="submit">Enviar para IA</button>
+            </form>
+            
+            <h3>Links Úteis</h3>
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+            </ul>
+        </aside>
+    </main>
+    
+    <script>
+      const form = document.getElementById('meu-form');
+      const textoPost = document.getElementById('texto-post');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        textoPost.innerText = "🤖 A IA está pensando...";
+
+        try {
+          // Nota: Mude para a URL de produção do seu n8n se não quiser depender da tela de testes aberta
+          const response = await fetch('https://vic939.app.n8n.cloud/webhook-test/d765bc00-a83d-46c3-9b99-37b708599497', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: document.getElementById('email').value,
+              message: document.getElementById('message').value
+            })
+          });
+
+          if (!response.ok) {
+             throw new Error("Erro na resposta da rede");
+          }
+
+          const text = await response.text();
+          textoPost.innerHTML = marked.parse(text);
+
+        } catch (error) {
+          textoPost.innerText = "❌ Ocorreu um erro ao conectar com a IA.";
+          console.error(error);
+        }
+      });
+    </script>
+</body>
+</html>
