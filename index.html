@@ -35,16 +35,18 @@
         <aside class="barra-lateral">
             <h3>Fale com a IA</h3>
             
-            <!-- Formulário criado com os IDs corretos que o JS espera -->
-            <form id="meu-form" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" required placeholder="seu@email.com">
-                
-                <label for="message">Mensagem:</label>
-                <textarea id="message" required placeholder="Digite sua pergunta..." rows="4"></textarea>
-                
-                <button type="submit">Enviar para IA</button>
-            </form>
+                 <form id="meu-form">
+        <div>
+          <label for="email">Digite seu email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div>
+          <label for="message">Mande uma message:</label>
+          <textarea id="message" required></textarea>
+        </div>
+        </label>
+        <button type="submit">Send</button>
+      </form>
             
             <h3>Links Úteis</h3>
             <ul>
