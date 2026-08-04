@@ -1,143 +1,208 @@
-/* Configurações Gerais */
+/* Reset Geral e Fontes Fofas */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    color: #4a4a4a; /* Texto em cinza escuro quentinho, menos agressivo que o preto */
+    background-image: url('../fundo.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #fff0f5; /* Fundo rosa bem clarinho caso a foto não carregue */
 }
 
+/* Container Central */
 .container {
-    width: 90%;
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1050px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Cabeçalho */
+/* Cabeçalho Lindo e Iluminado */
 header {
-    background-color: #4a354a;
-    color: #ffffff;
-    padding: 40px 0;
+    background: rgba(255, 245, 247, 0.9); /* Branco rosado ultra delicado */
+    backdrop-filter: blur(8px);
+    padding: 35px 0;
     text-align: center;
+    border-bottom: 2px dashed #ffb6c1; /* Bordinha pontilhada super fofa */
 }
 
 header h1 {
-    margin-bottom: 10px;
+    font-size: 2.3rem;
+    color: #ff6b8b; /* Rosa marcante e moderno */
+    letter-spacing: -0.5px;
 }
 
-/* Menu de Navegação */
+.subtitulo {
+    color: #a38087;
+    font-size: 1rem;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* Barra de Navegação */
 nav {
-    background-color: #2e383f;
+    background: #ffb6c1; /* Rosa pastel clássico */
     padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 nav a {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
-    margin-right: 20px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 16px;
+    border-radius: 20px; /* Botões arredondados */
+    transition: all 0.3s ease;
 }
 
-nav a:hover {
-    color: #e8491d;
+nav a:hover, nav a.ativo {
+    background: #ff6b8b;
+    transform: translateY(-1px);
 }
 
-/* Layout Principal (Flexbox) */
+/* Grid das Caixas */
 .container-flex {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
-    gap: 30px;
+    margin-top: 35px;
+    margin-bottom: 60px;
+    gap: 25px;
 }
 
 .conteudo-principal {
-    flex: 3;
-    min-width: 300px;
+    flex: 2.3;
+    min-width: 320px;
 }
 
 .barra-lateral {
     flex: 1;
-    min-width: 250px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
+    min-width: 300px;
     height: fit-content;
 }
 
-/* Posts */
-.post {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+/* Estilo das Caixinhas em Formato de Cartas Mágicas */
+.post, .barra-lateral {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(255, 182, 193, 0.4); /* Borda rosa sutil */
+    padding: 28px;
+    border-radius: 20px; /* Cantos bem arredondados e amigáveis */
+    box-shadow: 0 10px 25px rgba(255, 107, 139, 0.06); /* Sombra levinha e quente */
 }
 
+/* Caixa de Texto da Esquerda */
 .post h2 {
-    color: #35424a;
-    margin-bottom: 5px;
+    color: #ff6b8b;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
 }
 
 .meta-dados {
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 15px;
-}
-
-.post p {
-    margin-bottom: 15px;
-}
-
-.botao-ler {
+    font-size: 0.8rem;
+    color: #b388ff; /* Um toque lilás fofo */
+    background: #f3e5f5;
+    padding: 5px 14px;
     display: inline-block;
-    background-color: #e8491d;
-    color: #ffffff;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 3px;
-    font-size: 0.9rem;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    font-weight: 600;
 }
 
-.botao-ler:hover {
-    background-color: #35424a;
+#texto-post {
+    font-size: 1.05rem;
+    color: #555;
 }
 
-/* Barra Lateral Adicional */
+/* Formulário da Direita */
 .barra-lateral h3 {
-    margin-bottom: 10px;
-    color: #35424a;
-    border-bottom: 2px solid #e8491d;
-    padding-bottom: 5px;
-}
-
-.barra-lateral p {
+    color: #ff6b8b;
     margin-bottom: 20px;
-}
-
-.barra-lateral ul {
-    list-style: none;
-}
-
-.barra-lateral ul li a {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    padding: 5px 0;
-}
-
-.barra-lateral ul li a:hover {
-    color: #e8491d;
-}
-
-/* Rodapé */
-footer {
-    background-color: #35424a;
-    color: #ffffff;
+    font-size: 1.3rem;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 30px;
+}
+
+.campo-form {
+    margin-bottom: 18px;
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #7d666a;
+}
+
+.campo-form input, .campo-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffe4e1;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: #fffafa;
+    color: #4a4a4a;
+    transition: all 0.3s ease;
+}
+
+/* Input ao clicar */
+.campo-form input:focus, .campo-form textarea:focus {
+    outline: none;
+    border-color: #ff6b8b;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 107, 139, 0.15);
+}
+
+/* Botão Chic e Fofo */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfefshortcut 99%, #fecfef 100%); /* Degradê rosa perfeito */
+    background-color: #ff6b8b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 154, 158, 0.6);
+}
+
+/* Efeito do Carregando */
+.carregando {
+    color: #ff6b8b;
+    font-weight: 500;
+    animation: piscar 1.5s infinite ease-in-out;
+}
+
+@keyframes piscar {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .container-flex {
+        flex-direction: column-reverse; /* No celular o formulário sobe, facilitando o envio */
+    }
 }
