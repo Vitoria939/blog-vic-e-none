@@ -9,12 +9,7 @@
 body {
     line-height: 1.6;
     color: #4a4a4a; /* Texto em cinza escuro quentinho, menos agressivo que o preto */
-    background-image: url('../fundo.jpg'); 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: #fff0f5; /* Fundo rosa bem clarinho caso a foto não carregue */
+    background: linear-gradient(180deg, #fff0f5 0%, #ffeaf0 100%);
 }
 
 /* Container Central */
