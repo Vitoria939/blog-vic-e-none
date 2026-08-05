@@ -165,7 +165,6 @@ nav a:hover, nav a.ativo {
 button {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfefshortcut 99%, #fecfef 100%); /* Degradê rosa perfeito */
     background-color: #ff6b8b;
     color: white;
     border: none;
